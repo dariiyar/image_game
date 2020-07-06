@@ -1,0 +1,24 @@
+directories:
+  "db":
+    IrresponsibleModule:
+      enabled: false
+    FeatureEnvy:
+      enabled: false
+    UncommunicativeVariableName:
+      enabled: false
+  "app":
+    IrresponsibleModule:
+      enabled: false
+  "app/helpers":
+    IrresponsibleModule:
+      enabled: false
+    FeatureEnvy:
+      enabled: false
+  "config":
+    TooManyStatements:
+      enabled: false
+    IrresponsibleModule:
+      enabled: false
+  "spec":
+    UtilityFunction:
+      enabled: false
