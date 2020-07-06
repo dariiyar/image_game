@@ -4,6 +4,8 @@ AllCops:
     - db/**/*
     - bin/*
     - Gemfile
+    - spec/rails_helper.rb
+    - spec/spec_helper.rb
 Style/AccessorGrouping:
   Enabled: true
 Style/BisectedAttrAccessor:
