@@ -24,3 +24,8 @@ directories:
   "spec":
     UtilityFunction:
       enabled: false
+
+detectors:
+  FeatureEnvy:
+    exclude:
+      - "PlayData#images_data"
