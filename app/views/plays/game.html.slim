@@ -1,2 +1,19 @@
 h1
-  | Game
+  | The Game
+
+= form_for Play.new, url: :images do |f|
+  = f.file_field :images, multiple: true, accept: 'image/*'
+  = f.submit 'Upload'
+
+
+table.play-table.hidden
+  tbody
+    tr
+      td Play ID
+      td Timer
+      td Image
+    - @plays.each do |p|
+      tr
+        td = p.id
+        td = p.timer
+        td = image_tag(url_for(p.images.first))

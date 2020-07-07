@@ -27,5 +27,4 @@ directories:
 
 detectors:
   FeatureEnvy:
-    exclude:
-      - "PlayData#images_data"
+    enabled: false
