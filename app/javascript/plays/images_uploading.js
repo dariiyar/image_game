@@ -1,5 +1,5 @@
 ImagesUploading = {
-    init:  function () {
+    init:  function (callback) {
         const form = document.forms.namedItem('new_play');
 
         const showError = function (message) {
@@ -11,15 +11,10 @@ ImagesUploading = {
         const imagesValidator = function(images){
             let message='';
             if(images.length < 2)
-                message = 'Please upload at least two images'
-            else if(images.length >10){
-                message = 'Please upload less then 10 images'
-            }
-            if(message.length > 0){
+                message = 'Please upload at least two images';
+            if(message.length > 0)
                 showError(message);
-                return false;
-            }
-            return true;
+            return !message.length
         };
 
         const submit_handler = function (ev) {
@@ -27,13 +22,15 @@ ImagesUploading = {
             const formData = new FormData(form);
             if(!imagesValidator([...form.querySelector('input[type="file"][multiple]').files]))
                 return;
-            form.querySelector('.error-block').classList.add("hidden");;
+            form.querySelector('.error-block').classList.add("hidden");
             fetch(form.action, {
                 method: 'POST',
                 body: formData
             }).then((response) => {
                 if (response.ok) {
-                    console.log(response.json());
+                    form.classList.add("hidden");
+                    if (typeof callback == "function")
+                        response.json().then((data) => { callback(data)});
                 }
                 else
                     response.json().then((response) => { console.log('Error: ' + response.errors); })
@@ -41,7 +38,7 @@ ImagesUploading = {
                 console.log('Fetch Error:' + error);
             });
         };
-        
+
         form.addEventListener('submit', submit_handler);
     }
 };
