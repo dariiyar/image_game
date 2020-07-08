@@ -4,11 +4,17 @@ class PlaysController < ApplicationController
   end
 
   def images
-    service = CreatePlay.perform(params[:play])
+    service = CreatePlay.perform(play_params)
     if service.success?
       render json: PlayData.perform(service.play).data, status: :created
     else
-      render errors: service.errors, status: :unprocessable_entity
+      render json: { errors: service.errors }, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def play_params
+    params.require(:play).permit(images: [])
   end
 end

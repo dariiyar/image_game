@@ -6,14 +6,4 @@ h1
   = f.submit 'Upload'
 
 
-table.play-table.hidden
-  tbody
-    tr
-      td Play ID
-      td Timer
-      td Image
-    - @plays.each do |p|
-      tr
-        td = p.id
-        td = p.timer
-        td = image_tag(url_for(p.images.first))
+= render partial: 'play_table'

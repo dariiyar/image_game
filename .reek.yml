@@ -28,3 +28,7 @@ directories:
 detectors:
   FeatureEnvy:
     enabled: false
+  UncommunicativeParameterName:
+    enabled: false
+  UncommunicativeVariableName:
+    enabled: false

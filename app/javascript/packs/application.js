@@ -8,6 +8,7 @@
 // require("channels")
 
 require("@rails/activestorage").start()
+require("plays/images_uploading.js")
 require("plays/game.js")
 
 // Uncomment to copy all static images under ../images to the output folder and reference

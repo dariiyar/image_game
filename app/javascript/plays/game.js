@@ -1,2 +1,3 @@
-console.log('game.js');
-
+document.addEventListener("DOMContentLoaded", function (event) {
+    ImagesUploading.init();
+});
