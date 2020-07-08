@@ -24,7 +24,7 @@ class PlayData
     @play.images.each_with_object([]) do |image, arr|
       hash = {}
       hash[:id] = image.id
-      hash[:link] = Rails.application.routes.url_helpers.url_for(image)
+      hash[:link] = Rails.application.routes.url_helpers.rails_blob_path(image)
       arr << hash
     end
   end

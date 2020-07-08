@@ -1,10 +1,6 @@
 h1
   | The Game
 
-= form_for Play.new, url: :images do |f|
-  .error-block.hidden
-  = f.file_field :images, multiple: true, accept: 'image/*'
-  = f.submit 'Upload', class: 'btn btn-primary'
-
-
+= render partial: 'form'
+= render partial: 'timer_container'
 = render partial: 'play_table'

@@ -17,7 +17,7 @@ ImagesUploading = {
             return !message.length
         };
 
-        const submit_handler = function (ev) {
+        const submitHandler = function (ev) {
             ev.preventDefault();
             const formData = new FormData(form);
             if(!imagesValidator([...form.querySelector('input[type="file"][multiple]').files]))
@@ -39,6 +39,6 @@ ImagesUploading = {
             });
         };
 
-        form.addEventListener('submit', submit_handler);
+        form.addEventListener('submit', submitHandler);
     }
 };

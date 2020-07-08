@@ -49,6 +49,10 @@ Style/FormatStringToken:
   Enabled: false
 Style/RedundantFetchBlock:
   Enabled: true
+Metrics/AbcSize:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
 Layout/LineLength:
   Exclude:
     - spec/**/*

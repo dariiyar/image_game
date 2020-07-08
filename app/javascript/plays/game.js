@@ -1,3 +1,3 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-    ImagesUploading.init();
+    ImagesUploading.init(GameConfiguration.init);
 });

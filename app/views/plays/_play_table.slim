@@ -1,11 +1,9 @@
 table.play-table.hidden
   tbody
     tr
-      td Play ID
-      td Timer
-      td Image
+      td.timer
+      td.image
     - @plays.each do |p|
       tr
-        td = p.id
         td = p.timer
         td = image_tag(url_for(p.images.first))
