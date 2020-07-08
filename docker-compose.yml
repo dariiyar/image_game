@@ -1,0 +1,9 @@
+version: '2'
+services:
+  game_app:
+    build: .
+    command:  bash -c "yarn install --check-files && bundle exec rails webpacker:check_yarn && bundle exec rails webpacker:install && bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/image_game
+    ports:
+      - 3000:3000
