@@ -7,3 +7,11 @@
     width: 100px;
   }
 }
+
+form{
+  padding-top: 20px;
+  .error-block{
+    margin-bottom: 10px;
+    color: red;
+  }
+}

@@ -1,11 +1,33 @@
 ImagesUploading = {
     init:  function () {
         const form = document.forms.namedItem('new_play');
+
+        const showError = function (message) {
+            let el = form.querySelector('.error-block');
+            el.innerHTML = message;
+            el.classList.remove("hidden");
+        };
+
+        const imagesValidator = function(images){
+            let message='';
+            if(images.length < 2)
+                message = 'Please upload at least two images'
+            else if(images.length >10){
+                message = 'Please upload less then 10 images'
+            }
+            if(message.length > 0){
+                showError(message);
+                return false;
+            }
+            return true;
+        };
+
         const submit_handler = function (ev) {
             ev.preventDefault();
             const formData = new FormData(form);
-            if(![...form.querySelector('input[type="file"][multiple]').files].length)
+            if(!imagesValidator([...form.querySelector('input[type="file"][multiple]').files]))
                 return;
+            form.querySelector('.error-block').classList.add("hidden");;
             fetch(form.action, {
                 method: 'POST',
                 body: formData
@@ -19,6 +41,7 @@ ImagesUploading = {
                 console.log('Fetch Error:' + error);
             });
         };
+        
         form.addEventListener('submit', submit_handler);
     }
 };
